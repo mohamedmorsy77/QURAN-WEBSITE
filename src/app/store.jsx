@@ -1,5 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
+import  surahSlice  from "../features/ayahs-reducer/AyahSlice";
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    surahs: surahSlice
+  },
 });

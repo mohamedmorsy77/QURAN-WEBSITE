@@ -8,7 +8,7 @@ function HeroSection() {
   return (
     <div
       id="carouselExampleInterval"
-      class="carousel slide"
+      className="carousel slide"
       data-bs-ride="carousel"
     >
       <img
@@ -16,34 +16,34 @@ function HeroSection() {
         className="position-absolute quran-kareem  z-1"
         alt="QuranKareem"
       />
-      <div class="carousel-inner h-100">
-        <div class="carousel-item active h-100" data-bs-interval="10000">
-          <img src={quranThree} class="d-block  h-100 w-100" alt="Quran" />
+      <div className="carousel-inner h-100">
+        <div className="carousel-item active h-100" data-bs-interval="10000">
+          <img src={quranThree} className="d-block  h-100 w-100" alt="Quran" />
         </div>
-        <div class="carousel-item h-100" data-bs-interval="2000">
-          <img src={quranTwo} class="d-block  h-100 w-100" alt="Quran" />
+        <div className="carousel-item h-100" data-bs-interval="2000">
+          <img src={quranTwo} className="d-block  h-100 w-100" alt="Quran" />
         </div>
-        <div class="carousel-item h-100">
-          <img src={quranOne} class="d-block  h-100 w-100" alt="Quran" />
+        <div className="carousel-item h-100">
+          <img src={quranOne} className="d-block  h-100 w-100" alt="Quran" />
         </div>
       </div>
       <button
-        class="carousel-control-prev"
+        className="carousel-control-prev"
         type="button"
         data-bs-target="#carouselExampleInterval"
         data-bs-slide="prev"
       >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
+        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span className="visually-hidden">Previous</span>
       </button>
       <button
-        class="carousel-control-next"
+        className="carousel-control-next"
         type="button"
         data-bs-target="#carouselExampleInterval"
         data-bs-slide="next"
       >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
+        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+        <span className="visually-hidden">Next</span>
       </button>
     </div>
   );
