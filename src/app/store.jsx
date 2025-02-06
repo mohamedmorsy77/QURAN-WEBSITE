@@ -1,12 +1,10 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import surahSlice from "../features/surahs-reducer/SurahsSlice";
-
+import { combineReducers, configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-
+import surahSlice from "../features/surahs-reducer/SurahsSlice";
 import audioSlice from "../features/Audio/AudioSlice";
 import prayerTimesSlice from "../features/prayer-times-reducer/PrayerTimesSlice";
-import radioSlice from '../features/quranRadio/QuranRadioSlice'
+import radioSlice from '../features/quranRadio/QuranRadioSlice';
 
 const persistConfig = {
   key: "root",
@@ -24,8 +22,10 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false, // 
+    }),
 });
 
-let persistor = persistStore(store);
-
-export { persistor };
+export const persistor = persistStore(store);

@@ -14,7 +14,10 @@ function Radio() {
 
   const togglePlay = (id, url) => {
     const audio = audioRefs.current[id];
-
+    if (!url) {
+      alert("Streaming link not available");
+      return;
+    }
     if (playingId === id) {
       audio.pause();
       setPlayingId(null);
@@ -40,17 +43,28 @@ function Radio() {
           subTitle="Enjoy a variety of recitations from renowned Quran reciters and immerse yourself in the spirituality of the Holy Quran anytime, anywhere."
         />
         <div className="radio-container  mt-5 ">
-          {radios.map(({ id, img, name, url }) => (
-            <RadioCard
-              id={id}
-              img={img}
-              name={name}
-              url={url}
-              playingId={playingId}
-              audioRefs={audioRefs}
-              togglePlay={togglePlay}
-            />
-          ))}
+          {radios && Array.isArray(radios) && radios.length > 0 ? (
+            radios.slice(0,19).map(({ id, img, name, url }, index) =>
+              url ? (
+                <RadioCard
+                  key={index + 1}
+                  id={id}
+                  img={img}
+                  name={name}
+                  url={url}
+                  playingId={playingId}
+                  audioRefs={audioRefs}
+                  togglePlay={togglePlay}
+                />
+              ) : (
+                <p key={id} className="text-danger">
+                  Streaming link not available
+                </p>
+              )
+            )
+          ) : (
+            <h1> Loading radio stations...</h1>
+          )}
         </div>
       </div>
     </section>
