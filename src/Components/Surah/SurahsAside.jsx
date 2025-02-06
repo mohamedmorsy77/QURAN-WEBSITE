@@ -10,16 +10,11 @@ function SurahsAside({
   surahsData,
   filterSurahsData,
 }) {
-  const [statusAside, setStatusAside] = useState(false);
 
-  const handleShowAside = () => {
-    setStatusAside(true)
-  }
+
   return (
-    <div className={`surah-aside col-3  py-5 px-4 surah-details-aside position-fixed ${statusAside ? "hide-aside" : ""}`}>
-      <button className="btn btn-dark close-aside" onClick={handleShowAside}>
-        <IoMdClose  />
-      </button>
+    <div className={`surah-aside col-3  py-5 px-4 surah-details-aside position-fixed `}>
+      
       <div className="mt-4">
         <input
           type="text"
