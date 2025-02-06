@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/QURAN-WEBSITE/static/css/main.4f8e5e7a.css",
+    "main.js": "/QURAN-WEBSITE/static/js/main.827ae0b6.js",
+    "static/media/QuranThree.jpg": "/QURAN-WEBSITE/static/media/QuranThree.b7a1cde947c37bc6a3e9.jpg",
+    "static/media/quranTwo.jpg": "/QURAN-WEBSITE/static/media/quranTwo.dc8bad1f57096c3a7134.jpg",
+    "static/media/Quran-Background.png": "/QURAN-WEBSITE/static/media/Quran-Background.f2ef3935b8da77329585.png",
+    "static/media/quranOne.jpg": "/QURAN-WEBSITE/static/media/quranOne.e15fce150f14ed4b5d4a.jpg",
+    "static/media/bg-banner.png": "/QURAN-WEBSITE/static/media/bg-banner.45ae5878477ee2075d0b.png",
+    "static/media/suruh-logo.png": "/QURAN-WEBSITE/static/media/suruh-logo.c0cef5423443657d036e.png",
+    "static/media/clock.png": "/QURAN-WEBSITE/static/media/clock.e71b68448dc161f581d1.png",
+    "static/media/logo.png": "/QURAN-WEBSITE/static/media/logo.4a9234fac8659c9eba6d.png",
+    "static/media/qurankareem.png": "/QURAN-WEBSITE/static/media/qurankareem.dc4ca743d437d79c43f5.png",
+    "static/media/radio.png": "/QURAN-WEBSITE/static/media/radio.f4df774da2c947c3e1c8.png",
+    "index.html": "/QURAN-WEBSITE/index.html",
+    "main.4f8e5e7a.css.map": "/QURAN-WEBSITE/static/css/main.4f8e5e7a.css.map",
+    "main.827ae0b6.js.map": "/QURAN-WEBSITE/static/js/main.827ae0b6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4f8e5e7a.css",
+    "static/js/main.827ae0b6.js"
+  ]
+}
