@@ -30,7 +30,7 @@ function Header() {
               <Link
                 to="/"
                 className="nav-link header-links-color "
-                aria-current="page"
+
               >
                 Home
               </Link>
@@ -39,7 +39,6 @@ function Header() {
               <Link
                 to="prayer-times"
                 className="nav-link header-links-color "
-                aria-current="page"
               >
                 prayer times
               </Link>
