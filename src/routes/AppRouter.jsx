@@ -11,7 +11,7 @@ import Radio from "../Components/radio/Radio";
 
 function AppRouter() {
   return (
-    <HashRouter basename="QURAN-WEBSITE">
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
