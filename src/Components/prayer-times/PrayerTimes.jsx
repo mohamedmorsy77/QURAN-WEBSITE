@@ -46,7 +46,7 @@ function PrayerTimes() {
             </div>
 
             <div className="row prayer-times-with-name">
-              {Object.entries(timings)
+              {timings? (Object.entries(timings)
                 .filter(([name]) => name !== "Sunset")
                 .slice(0, 6)
                 .map(([prayerName, prayerTime], index) => (
@@ -56,7 +56,7 @@ function PrayerTimes() {
                     prayerName={prayerName}
                     prayerTime={prayerTime}
                   />
-                ))}
+                ))): ( <h3>Loading prayer times...</h3>)}
             </div>
           </div>
         </div>
