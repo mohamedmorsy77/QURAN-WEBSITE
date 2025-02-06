@@ -2,7 +2,7 @@
   "name": "app-one",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mohamedmorsy77.github.io/QURAN-WEBSITE",
+  "homepage": "https://mohamedmorsy77.github.io/QURAN-WEBSITE/",
   "dependencies": {
     "@flaticon/flaticon-uicons": "^3.3.1",
     "@reduxjs/toolkit": "^2.5.0",
