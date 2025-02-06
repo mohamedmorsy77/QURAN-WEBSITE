@@ -1,5 +1,8 @@
 .surah {
   background-image: url("../../assets/images/Quran-Background.png");
+  button {
+    background-color: #14233b;
+  }
 }
 .info {
   color: #3e5879;
@@ -96,7 +99,7 @@
 
 .surah-details > div:nth-child(2) {
   min-height: 100vh;
-  margin-left: 25%; 
+  margin-left: 25%;
 }
 
 .surah-details .surah-info {
@@ -135,4 +138,26 @@
 }
 .surah-details .surahs-list li a {
   color: #d8c4b6;
+}
+
+.close-aside {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+}
+
+.hide-aside {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .surah-aside {
+    display: none;
+  }
+  .surah-details > div:nth-child(2)  {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-left: 0;
+  }
 }

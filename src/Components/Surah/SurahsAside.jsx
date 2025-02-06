@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import LoadingSpinner from "../spinner/LoadingSpinner";
 import { Link } from "react-router-dom";
+import { IoMdClose } from "react-icons/io";
 
 function SurahsAside({
   id,
@@ -9,10 +10,17 @@ function SurahsAside({
   surahsData,
   filterSurahsData,
 }) {
-   
+  const [statusAside, setStatusAside] = useState(false);
+
+  const handleShowAside = () => {
+    setStatusAside(true)
+  }
   return (
-    <div className="col-3  py-5 px-4 surah-details-aside">
-      <div>
+    <div className={`surah-aside col-3  py-5 px-4 surah-details-aside position-fixed ${statusAside ? "hide-aside" : ""}`}>
+      <button className="btn btn-dark close-aside" onClick={handleShowAside}>
+        <IoMdClose  />
+      </button>
+      <div className="mt-4">
         <input
           type="text"
           className="w-100 .search-by-surah-name rounded-2 search-by-surah-name border-0 p-2 shadow-lg"

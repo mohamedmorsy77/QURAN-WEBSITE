@@ -9,7 +9,7 @@ function Ayahs() {
   const { loading, surahDetails, numberOfPages, audioLoading, audioData } =
     useOutletContext();
   return (
-    <div className="col-9 ">
+    <div className="col-9 ayahs-details">
       {loading ? (
         <LoadingSpinner />
       ) : (
@@ -19,8 +19,8 @@ function Ayahs() {
             {surahDetails && surahDetails.data && (
               <>
                 <Surahname surahDetails={surahDetails} />
-                <div className="surah-audio py-2 d-flex justify-content-between align-items-center ">
-                  <div className="d-flex align-item-center gap-2">
+                <div className="surah-audio flex-wrap py-2 d-flex justify-content-center justify-content-md-between align-items-center gap-3 ">
+                  <div className="d-flex  align-item-center gap-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"

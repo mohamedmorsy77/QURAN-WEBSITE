@@ -84,7 +84,7 @@ function Surah() {
         </div>
         <div className="row mt-5">
           <div className="col-12 text-end d-flex align-items-center justify-content-end">
-            <button className="btn btn-danger" onClick={handleSort}>
+            <button className="text-white px-3 py-2 rounded-2" onClick={handleSort}>
               Sort by: {isAscending ? "Ascending" : "Decending"}
             </button>
           </div>
