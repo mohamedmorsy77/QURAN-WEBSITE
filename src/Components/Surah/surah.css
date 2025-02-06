@@ -1,24 +1,28 @@
-
-.suruh {
+.surah {
   background-image: url("../../assets/images/Quran-Background.png");
 }
-.suruh .info {
-    color: #3e5879;
-    
+.info {
+  color: #3e5879;
 }
 
-.suruh .en-name p:last-child, .suruh .arabic-name p:last-child{
-    color: #D8C4B6;
-    font-size: 0.8rem;
+.surah .en-name p:last-child,
+.surah .arabic-name p:last-child {
+  color: #d8c4b6;
+  font-size: 0.8rem;
+}
+
+.number-surah {
+  width: 40px;
+  height: 40px;
 }
 .sarah-number-rotate {
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
 }
-.suruh .surah-info {
+.surah .surah-info {
   background-color: #213555;
   color: #f5efe7;
   cursor: pointer;
@@ -30,8 +34,8 @@
   box-shadow: 0 3px 3px 0 #3e5879;
 }
 
-.suruh .surah-info:hover {
-    background-color: #14233b;
+.surah .surah-info:hover {
+  background-color: #14233b;
 }
 .sarah-number-rotate-reverse {
   transform: rotate(-45deg);
@@ -40,13 +44,95 @@
   -ms-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
 }
-.suruh .number-surah {
+.surah .number-surah {
   background-color: #3e5879;
 }
-.suruh .container .row:first-child {
+.surah .container .row:first-child {
   width: fit-content;
 }
 
-.suruh .suruh-logo img {
+.section-logo img {
   width: 100px;
+}
+
+.surah .search-by-surah-name {
+  background-color: #213555;
+
+  color: #d8c4b6;
+}
+
+.surah .search-by-surah-name::placeholder {
+  color: #d8c4b6;
+}
+
+/* surahsDetails Component */
+.surah-details {
+  min-height: 100vh;
+  background-image: url(../../assets/images/Quran-Background.png);
+  background-size: contain;
+  position: relative;
+  top: 76px;
+}
+.surah-details .ayahs-page {
+  border-bottom: 1px solid #3e5879;
+}
+.surah-details .ayahs-container {
+  line-height: 3;
+}
+.surah-details > div:first-child {
+  background-color: #213555;
+  height: 100%;
+  position: fixed;
+  top: 76px;
+  left: 0;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.surah-details > div:first-child::-webkit-scrollbar {
+  width: none;
+}
+
+.surah-details > div:nth-child(2) {
+  min-height: 100vh;
+  margin-left: 25%; 
+}
+
+.surah-details .surah-info {
+  color: #213555;
+}
+
+.surah-details .surah-name {
+  width: fit-content;
+}
+
+.surah-details .ayah-number-img {
+  width: 35px;
+  height: 50px;
+}
+.surah-details .ayah-number {
+  width: 3.5rem;
+}
+.surah-details .ayah-number p {
+  font-size: 1rem;
+}
+
+.surah-details .surah-audio {
+  border-bottom: 1px solid #3e5879;
+}
+
+.surah-details-aside .search-by-surah-name {
+  background-color: #364f76;
+  outline: 0;
+  color: #d8c4b6;
+}
+
+.surah-details .surahs-list li {
+  background-color: #364f76;
+  color: #d8c4b6;
+  cursor: pointer;
+}
+.surah-details .surahs-list li a {
+  color: #d8c4b6;
 }

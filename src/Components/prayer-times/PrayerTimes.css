@@ -1,0 +1,14 @@
+.prayer-times {
+  background-image: url("../../assets/images/bg-banner.png");
+  top: 76px;
+
+  .row .col {
+    background-image: url("../../assets/images/bg-banner.png");
+    background-size: cover;
+    background-position: bottom;
+  }
+}
+
+.prayer-times .prayer-times-with-name .info-prayer-times {
+  background-color: #f2f2f2;
+}

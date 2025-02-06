@@ -13,3 +13,18 @@ export const fetchSurahsData = createAsyncThunk(
     }
   }
 );
+
+export const fetchSurahsDetails = createAsyncThunk(
+  "surahs/fetchSurahsDetails",
+  async (surahId) => {
+    try {
+      const response = await axios.get(
+        `https://api.alquran.cloud/v1/surah/${surahId}`
+      );
+
+      return response.data;
+    } catch (error) {
+      return error.message;
+    }
+  }
+);

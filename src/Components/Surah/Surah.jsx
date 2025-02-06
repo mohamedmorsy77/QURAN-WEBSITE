@@ -1,78 +1,105 @@
-import React, { useEffect } from "react";
-import { Audio, Circles } from "react-loader-spinner";
+import React, { useEffect, useState } from "react";
 import suruh from "../../assets/images/suruh-logo.png";
 import "./surah.css";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchSurahsData } from "../../networks/AyahsApi";
+import { fetchSurahsData } from "../../networks/surahsApi";
+import SurahCard from "./SurahCard";
+import LoadingSpinner from "../spinner/LoadingSpinner";
+import SectionTitle from "../SectionTitle/SectionTitle";
 function Surah() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [allSurahs, setAllSurah] = useState([]);
+  const [isAscending, setAscending] = useState(true);
   const { surahsData, error, loading } = useSelector((state) => state.surahs);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchSurahsData());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (surahsData.data) {
+      setAllSurah(surahsData.data);
+    }
+  }, [surahsData.data]);
   if (loading) {
-    return (
-      <div
-        className="d-flex justify-content-center align-items-center"
-        style={{ height: "100vh" }}
-      >
-        <Circles
-          height="80"
-          width="80"
-          color="#4fa94d"
-          ariaLabel="circles-loading"
-          visible={true}
-        />
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   if (error) {
     return <p className="text-danger">Error: {error}</p>;
   }
+
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  // remove Diacritics
+  const removeDiacritics = (text) => {
+    return text.replace(/[\u064B-\u0652\u0617\u0618\u0619\u061A\u0640]/g, "");
+  };
+
+  // Filter surahs data
+  const filterSurahsData = searchQuery
+    ? allSurahs.filter(
+        (surah) =>
+          surah.englishName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          removeDiacritics(surah.name).includes(removeDiacritics(searchQuery))
+      )
+    : allSurahs;
+  //   sorting function
+  const handleSort = () => {
+    setAscending(!isAscending);
+  };
+  // // Sorting the data here depends on the isAscending value and displays it sorted
+
+  let sortedSurahsData = [...filterSurahsData].sort((a, b) => {
+    if (isAscending) {
+      return a.number - b.number;
+    } else {
+      return b.number - a.number;
+    }
+  });
+
   return (
-    <section className="suruh py-5">
+    <section className="surah py-5">
       <div className="container">
-        <div className="row m-auto text-center info">
-          <div className="suruh-logo ">
-            <img src={suruh} alt="suruh-image" />
+        <SectionTitle
+          img={suruh}
+          title="Surahs of the Quran"
+          subTitle=" The Quran consists of 114 Surahs, each containing a specific number
+            of Ayat."
+        />
+      
+        <div className="row mt-3">
+          <div className="col-12">
+            <input
+              type="text"
+              className="w-100 rounded-2 search-by-surah-name p-3 shadow-lg"
+              placeholder="Search for a Surah..."
+              value={searchQuery}
+              onChange={handleSearch}
+            />
           </div>
-          <span className="mt-3  fs-2 fw-bold">Surahs of the Quran</span>
-          <p className="mt-3">
-            The Quran consists of 114 Surahs, each containing a specific number
-            of Ayat.
-          </p>
         </div>
         <div className="row mt-5">
-          {!error &&
-            !loading &&
-            surahsData &&
+          <div className="col-12 text-end d-flex align-items-center justify-content-end">
+            <button className="btn btn-danger" onClick={handleSort}>
+              Sort by: {isAscending ? "Ascending" : "Decending"}
+            </button>
+          </div>
+        </div>
+        <div className="row mt-5">
+          {surahsData &&
             surahsData.data &&
-            surahsData.data.map((surah) => (
-              <div className="col-12 col-lg-6 col-xl-4 mb-3" key={surah.number}>
-                <div className="surah-info px-4 py-3 d-flex justify-content-between align-items-center">
-                  <div className="d-flex align-items-center gap-4">
-                    <div className="number-surah sarah-number-rotate  px-3 py-2 d-flex align-items-center justify-content-center">
-                      <span className="sarah-number-rotate-reverse">
-                        {surah.number}
-                      </span>
-                    </div>
-
-                    <div className="en-name d-flex flex-column gap-1">
-                      <p className="m-0 fw-bold">{surah.englishName}</p>
-                      <p className="m-0">{surah.englishNameTranslation}</p>
-                    </div>
-                  </div>
-                  <div className="arabic-name text-end">
-                    <p className="m-0 fw-bold">{surah.name}</p>
-                    <p className="m-0">{surah.numberOfAyahs} Ayahs</p>
-                  </div>
-                </div>
-              </div>
+            sortedSurahsData.map((surah) => (
+              <SurahCard
+                key={surah.number}
+                surah={surah}
+                surahNumber={surah.number}
+              />
             ))}
         </div>
-        <div className="row"></div>
       </div>
     </section>
   );
