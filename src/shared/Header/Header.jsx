@@ -37,7 +37,7 @@ function Header() {
             </li>
             <li className="nav-item">
               <Link
-                to="prayer-times"
+                to="/prayer-times"
                 className="nav-link header-links-color "
               >
                 prayer times
@@ -47,7 +47,7 @@ function Header() {
          
        
             <li className="nav-item ">
-              <Link to="radio" className="nav-link header-links-color">
+              <Link to="/radio" className="nav-link header-links-color">
                 Quran Radio
               </Link>
             </li>

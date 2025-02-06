@@ -8,18 +8,17 @@ import Ayahs from "../Components/Surah/Ayahs";
 import PrayerTimes from "../Components/prayer-times/PrayerTimes";
 import Radio from "../Components/radio/Radio";
 
-
 function AppRouter() {
   return (
-    <HashRouter>
+    <HashRouter basename="/QURAN-WEBSITE">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="prayer-times" element={<PrayerTimes />} />
           <Route path="radio" element={<Radio />} />
-          <Route path="surah/:id" element={<SurahsData />}>
+          <Route path="surah/:id" element={<SurahsData />} >
             <Route index element={<Ayahs />} />
-            <Route path=":id" element = {<Ayahs/>} />
+            <Route path=":id" element={<Ayahs />} />
           </Route>
         </Route>
       </Routes>
